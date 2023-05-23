@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\assets\GetInfoData;
 use App\Http\Controllers\auth\ControllerAuth;
 use App\Http\Controllers\ControllerCategoria;
 use App\Http\Controllers\ControllerClientes;
@@ -54,4 +55,5 @@ Route::middleware('jwt.verify')->group(function () {
     Route::post('save-ventas', [ControllerVentas::class, 'store'])->middleware('jwt.verify');
     Route::put('update-ventas/{id_venta}', [ControllerVentas::class, 'update'])->middleware('jwt.verify');
     Route::delete('delete-ventas/{id}', [ControllerVentas::class, 'destroy'])->middleware('jwt.verify');
+    Route::get('get-info/{data}', [GetInfoData::class, 'GetInfo'])->middleware('jwt.verify');
 });
